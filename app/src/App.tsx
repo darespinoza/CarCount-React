@@ -1,10 +1,19 @@
 import { useState } from "react";
-import "./App.css";
+import CountItem from "./components/CountItem";
+import type { Counter } from "./types";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [counts, setCounts] = useState<Counter[]>([
+    { id: Date.now(), count: 0, text: "Auto" },
+  ]);
 
-  return <>Hola wenas :)</>;
+  return (
+    <ul>
+      {counts.map((count) => (
+        <CountItem counter={count} />
+      ))}
+    </ul>
+  );
 }
 
 export default App;
