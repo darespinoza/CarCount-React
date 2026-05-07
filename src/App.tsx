@@ -1,13 +1,10 @@
-import { useState } from "react";
 import CountItem from "./components/CountItem";
+import { VEHICLE_COUNTERS } from "./constants/vehicleTypes";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 import type { Counter } from "./types";
 
 function App() {
-  const [counts, setCounts] = useState<Counter[]>([
-    { id: 1000, numero: 0, text: "Liviano" },
-    { id: 2000, numero: 0, text: "Pesado" },
-    { id: 3000, numero: 0, text: "Taxi" },
-  ]);
+  const [counts, setCounts] = useLocalStorage<Counter[]>("car-counts", VEHICLE_COUNTERS);
 
   // Add unit to counter
   const addUnit = (id: number) => {

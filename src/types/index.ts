@@ -1,5 +1,7 @@
+export type VehicleType = "Liviano" | "Pesado" | "Taxi" | "Motocicleta";
+
 export type Counter = {
   id: number;
-  text: string;
+  text: VehicleType;
   numero: number;
 };
